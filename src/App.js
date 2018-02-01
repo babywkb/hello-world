@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import axios from 'axios';
 
 var REQUEST_URL ='/api/books/1';
@@ -13,7 +12,8 @@ class Book extends Component {
   componentDidMount() {
     this.setState({title: "変更後"});
     axios.get(REQUEST_URL).then((response) => {
-      this.setState({title: response.title})
+      console.log(response)
+      this.setState({title: response.data.title})
     });
   }
 
